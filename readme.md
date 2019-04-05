@@ -48,7 +48,7 @@ class User extends Resource
 
 Now you can use the `InlineSelect` field just like Nova's `Select` field. Now for the magic... 
 
-## Inline editing
+### Inline editing
 
 By default, the inline select field works just like a normal select field. To enable the inline editting capabilities we can use the `inlineOnIndex()` and `inlineOnDetail()` methods.
 
@@ -68,7 +68,7 @@ InlineSelect::make('Status')->options($options)
 
 Now changing the select field on the index view will auto-submit the changed value.
 
-## Display using labels
+### Display using labels
 
 This method works just like Nova's select field. It will display the option value rather than the option key.
 
@@ -77,7 +77,17 @@ InlineSelect::make('Status')->options($options)
     ->displayUsingLabels(),
 ```
 
-### Changelog
+### Validation caveats
+
+In the case where fields on a model are `required`, which is likely, an extra step needs to be taken ton ensure the inline select update persists and doesn't throw an error. The validation rule `sometimes` needs to be added to the `updateRules()` method on any field that is `required`.
+
+```php
+Text::make('Email')
+    ->rules('required', 'email')
+    ->updateRules('sometimes'),
+```
+
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
