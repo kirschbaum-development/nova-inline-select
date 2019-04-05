@@ -26,13 +26,13 @@
     },
     "autoload": {
         "psr-4": {
-            "KirschbaumDevelopment\\InlineSelect\\": "src/"
+            "KirschbaumDevelopment\\Nova\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "KirschbaumDevelopment\\InlineSelect\\InlineSelectFieldServiceProvider"
+                "KirschbaumDevelopment\\Nova\\InlineSelectFieldServiceProvider"
             ]
         }
     },
