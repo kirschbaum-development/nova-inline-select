@@ -17,17 +17,17 @@ This Nova field requires Nova 2.0 or higher.
 You can install this package in a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
 ```bash
-composer require kdg/nova-inline-select
+composer require kirschbaum-development/nova-inline-select
 ```
 
 ## Usage
 
-Next you can use the `Kdg\InlineSelect` field in your Nova resource:
+Next you can use the `KirschbaumDevelopment\InlineSelect` field in your Nova resource:
 
 ```php
 namespace App\Nova;
 
-use Kdg\InlineSelect;
+use KirschbaumDevelopment\InlineSelect;
 
 class User extends Resource
 {
