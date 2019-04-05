@@ -63,7 +63,7 @@ Now the above inline select field will show up on both the index a detail views.
 ```php
 InlineSelect::make('Status')->options($options)
     ->inlineOnIndex()
-    ->disableTwoStepOnIndex(),displayUsingLabels
+    ->disableTwoStepOnIndex(),
 ```
 
 Now changing the select field on the index view will auto-submit the changed value.
