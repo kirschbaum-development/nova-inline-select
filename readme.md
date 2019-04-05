@@ -22,12 +22,12 @@ composer require kirschbaum-development/nova-inline-select
 
 ## Usage
 
-Next you can use the `KirschbaumDevelopment\InlineSelect` field in your Nova resource:
+Next you can use the `KirschbaumDevelopment\Nova\InlineSelect` field in your Nova resource:
 
 ```php
 namespace App\Nova;
 
-use KirschbaumDevelopment\InlineSelect;
+use KirschbaumDevelopment\Nova\InlineSelect;
 
 class User extends Resource
 {
