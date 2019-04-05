@@ -1,0 +1,44 @@
+{
+    "name": "kdg/nova-inline-select",
+    "description": "An inline select field for Laravel Nova apps.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "homepage": "https://github.com/kirschbaum-development/nova-inline-select",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brandon Ferens",
+            "email": "brandon@kirschbaumdevelopment.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "laravel/nova": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kdg\\InlineSelect\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kdg\\InlineSelect\\InlineSelectFieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
