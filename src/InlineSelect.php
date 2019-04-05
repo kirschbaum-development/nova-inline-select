@@ -1,6 +1,6 @@
 <?php
 
-namespace Kdg\InlineSelect;
+namespace KirschbaumDevelopment\InlineSelect;
 
 use Laravel\Nova\Fields\Field;
 

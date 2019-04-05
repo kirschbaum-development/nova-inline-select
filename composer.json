@@ -1,5 +1,5 @@
 {
-    "name": "kdg/nova-inline-select",
+    "name": "kirschbaum-development/nova-inline-select",
     "description": "An inline select field for Laravel Nova apps.",
     "keywords": [
         "laravel",
@@ -26,13 +26,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Kdg\\InlineSelect\\": "src/"
+            "KirschbaumDevelopment\\InlineSelect\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Kdg\\InlineSelect\\InlineSelectFieldServiceProvider"
+                "KirschbaumDevelopment\\InlineSelect\\InlineSelectFieldServiceProvider"
             ]
         }
     },
