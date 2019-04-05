@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kirschbaum-development/nova-inline-select.svg?style=flat-square)](https://packagist.org/packages/kirschbaum-development/nova-inline-select)
 [![Total Downloads](https://img.shields.io/packagist/dt/kirschbaum-development/nova-inline-select.svg?style=flat-square)](https://packagist.org/packages/kirschbaum-development/nova-inline-select)
 
-This package contains a Nova select field to that can be updated inline from the index and detail views.
+This package contains a Nova select field that can update field values inline from the index and detail views.
 
 ![screenshot of the inline select field](screenshots/pending.png)
 ![screenshot of the inline select field ready for submitting](screenshots/approved.png)
@@ -14,7 +14,7 @@ This Nova field requires Nova 2.0 or higher.
 
 ## Installation
 
-Next, you can install this package in to a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
+You can install this package in a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
 ```bash
 composer require kdg/nova-inline-select
@@ -58,7 +58,7 @@ InlineSelect::make('Status')->options($options)
     ->inlineOnDetails(),
 ```
 
-Now the above inline select field will show up on both the index a detail views. When making a change to the select field, a button will display next to the field allowing you to commit the change. If you would prefer the field to auto-submit the change, just add `disableTwoStepOnIndex()` or `disableTwoStepOnDetail()`.
+Now the above inline select field will show up on both the index and detail views. When making a change to the select field, a button will display next to the field allowing you to commit the change. If you would prefer the field to auto-submit the change, just add `disableTwoStepOnIndex()` or `disableTwoStepOnDetail()`.
 
 ```php
 InlineSelect::make('Status')->options($options)
@@ -99,9 +99,9 @@ If you discover any security related issues, please email brandon@kirschbaumdeve
 
 - [Brandon Ferens](https://github.com/brandonferens)
 
-## Support us
+## Sponsorship
 
-Kirschbaum Development is a web development agency based in Northampton, Massachusetts. You'll find an overview of what we do [on our website](https://kirschbaumdevelopment.com).
+Development of this package is sponsored by Kirschbaum Development Group, a developer driven company focused on problem solving, team building, and community. Learn more [about us](https://kirschbaumdevelopment.com) or [join us](https://careers.kirschbaumdevelopment.com)!
 
 ## License
 
