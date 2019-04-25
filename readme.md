@@ -10,7 +10,7 @@ This package contains a Nova select field that can update field values inline fr
 
 ## Requirements
 
-This Nova field requires Nova 2.0 or higher.
+This Nova field requires Nova 1.0 or higher.
 
 ## Installation
 
@@ -32,12 +32,12 @@ use KirschbaumDevelopment\Nova\InlineSelect;
 class User extends Resource
 {
     // ...
-    
+
     public function fields(Request $request)
     {
         return [
             // ...
-            
+
             InlineSelect::make('Status'),
 
             // ...
@@ -46,7 +46,7 @@ class User extends Resource
 }
 ```
 
-Now you can use the `InlineSelect` field just like Nova's `Select` field. Now for the magic... 
+Now you can use the `InlineSelect` field just like Nova's `Select` field. Now for the magic...
 
 ### Inline editing
 
