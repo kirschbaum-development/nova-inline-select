@@ -10511,7 +10511,7 @@ module.exports = __webpack_require__(18);
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-Nova.booting(function (Vue, router, store) {
+Nova.booting(function (Vue) {
     Vue.component('index-inline-select', __webpack_require__(6));
     Vue.component('detail-inline-select', __webpack_require__(12));
     Vue.component('form-inline-select', __webpack_require__(15));
