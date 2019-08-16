@@ -8,7 +8,7 @@ use KirschbaumDevelopment\Nova\InlineSelectFieldServiceProvider;
 class TestCase extends OrchestraTestCase
 {
     /**
-     * Load package service provider
+     * Load package service provider.
      *
      * @param \Illuminate\Foundation\Application $app
      *
