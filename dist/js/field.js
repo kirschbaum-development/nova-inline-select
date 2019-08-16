@@ -10605,6 +10605,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -11435,6 +11438,7 @@ var render = function() {
                 attrs: {
                   id: _vm.field.attribute,
                   options: _vm.field.options,
+                  selected: _vm.value,
                   disabled: _vm.isReadonly
                 },
                 on: { change: _vm.attemptUpdate },
@@ -11447,8 +11451,12 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { value: "", selected: "" } }, [
-                  _vm._v(_vm._s(_vm.__("Choose an option")))
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.__("Choose an option")) +
+                      "\n            "
+                  )
                 ])
               ]
             ),
@@ -11580,6 +11588,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -11627,6 +11636,7 @@ var render = function() {
                     attrs: {
                       id: _vm.field.attribute,
                       options: _vm.field.options,
+                      selected: _vm.value,
                       disabled: _vm.isReadonly
                     },
                     on: { change: _vm.attemptUpdate },
@@ -11639,7 +11649,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "", selected: "" } }, [
+                    _c("option", { attrs: { value: "", disabled: "" } }, [
                       _vm._v(
                         "\n                    " +
                           _vm._s(_vm.__("Choose an option")) +
@@ -11762,6 +11772,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -11796,6 +11809,7 @@ var render = function() {
               attrs: {
                 id: _vm.field.attribute,
                 options: _vm.field.options,
+                selected: _vm.value,
                 disabled: _vm.isReadonly
               },
               model: {
@@ -11807,8 +11821,12 @@ var render = function() {
               }
             },
             [
-              _c("option", { attrs: { value: "", selected: "" } }, [
-                _vm._v(_vm._s(_vm.__("Choose an option")))
+              _c("option", { attrs: { value: "", disabled: "" } }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.__("Choose an option")) +
+                    "\n            "
+                )
               ])
             ]
           )
