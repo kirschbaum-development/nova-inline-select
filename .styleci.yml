@@ -14,7 +14,6 @@ enabled:
     - phpdoc_order
     - phpdoc_separation
     - property_separation
-    - short_list_syntax
     - ternary_to_null_coalescing
 
 disabled:
