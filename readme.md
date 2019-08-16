@@ -80,7 +80,7 @@ InlineSelect::make('Status')->options($options)
 
 ### Validation caveats
 
-In the case where fields on a model are `required`, which is likely, an extra step needs to be taken ton ensure the inline select update persists and doesn't throw an error. The validation rule `sometimes` needs to be added to the `updateRules()` method on any field that is `required`.
+In the case where fields on a model are `required`, which is likely, an extra step needs to be taken to ensure the inline select update persists and doesn't throw an error. The validation rule `sometimes` needs to be added to the `updateRules()` method on any field that is `required`.
 
 ```php
 Text::make('Email')
