@@ -23,9 +23,19 @@
     "require": {
         "php": ">=7.1.0"
     },
+    "require-dev": {
+        "orchestra/testing": "^4.0",
+        "phpunit/phpunit": "^8.3",
+        "laravel/nova": "*"
+    },
     "autoload": {
         "psr-4": {
             "KirschbaumDevelopment\\Nova\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "extra": {

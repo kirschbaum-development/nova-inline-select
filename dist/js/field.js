@@ -10511,7 +10511,7 @@ module.exports = __webpack_require__(18);
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-Nova.booting(function (Vue, router, store) {
+Nova.booting(function (Vue) {
     Vue.component('index-inline-select', __webpack_require__(6));
     Vue.component('detail-inline-select', __webpack_require__(12));
     Vue.component('form-inline-select', __webpack_require__(15));
@@ -10574,6 +10574,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_nova__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_init__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_inline__ = __webpack_require__(3);
+//
+//
+//
 //
 //
 //
@@ -11435,6 +11438,7 @@ var render = function() {
                 attrs: {
                   id: _vm.field.attribute,
                   options: _vm.field.options,
+                  selected: _vm.value,
                   disabled: _vm.isReadonly
                 },
                 on: { change: _vm.attemptUpdate },
@@ -11447,8 +11451,12 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { value: "", selected: "" } }, [
-                  _vm._v(_vm._s(_vm.__("Choose an option")))
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.__("Choose an option")) +
+                      "\n            "
+                  )
                 ])
               ]
             ),
@@ -11580,6 +11588,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -11627,6 +11636,7 @@ var render = function() {
                     attrs: {
                       id: _vm.field.attribute,
                       options: _vm.field.options,
+                      selected: _vm.value,
                       disabled: _vm.isReadonly
                     },
                     on: { change: _vm.attemptUpdate },
@@ -11639,7 +11649,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "", selected: "" } }, [
+                    _c("option", { attrs: { value: "", disabled: "" } }, [
                       _vm._v(
                         "\n                    " +
                           _vm._s(_vm.__("Choose an option")) +
@@ -11762,6 +11772,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -11796,6 +11809,7 @@ var render = function() {
               attrs: {
                 id: _vm.field.attribute,
                 options: _vm.field.options,
+                selected: _vm.value,
                 disabled: _vm.isReadonly
               },
               model: {
@@ -11807,8 +11821,12 @@ var render = function() {
               }
             },
             [
-              _c("option", { attrs: { value: "", selected: "" } }, [
-                _vm._v(_vm._s(_vm.__("Choose an option")))
+              _c("option", { attrs: { value: "", disabled: "" } }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.__("Choose an option")) +
+                    "\n            "
+                )
               ])
             ]
           )

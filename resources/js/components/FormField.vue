@@ -7,9 +7,12 @@
                 class="w-full form-control form-select"
                 :class="errorClasses"
                 :options="field.options"
+                :selected="value"
                 :disabled="isReadonly">
 
-                <option value="" selected>{{ __('Choose an option') }}</option>
+                <option value="" disabled>
+                    {{ __('Choose an option') }}
+                </option>
             </select-control>
         </template>
     </default-field>
