@@ -1,3 +1,5 @@
+![Nova Inline Select banner](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/banner.png)
+
 # An inline select field for Nova apps
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kirschbaum-development/nova-inline-select.svg)](https://packagist.org/packages/kirschbaum-development/nova-inline-select)
