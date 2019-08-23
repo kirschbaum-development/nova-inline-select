@@ -1,4 +1,4 @@
-![Nova Inline Select banner](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/banner.png)
+![Nova Inline Select banner](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/banner.jpg)
 
 # An inline select field for Nova apps
 
