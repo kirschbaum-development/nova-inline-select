@@ -10473,9 +10473,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 formData.append('_method', 'PUT');
 
                                 return _context.abrupt('return', Nova.request().post('/nova-api/' + this.resourceName + '/' + this.resourceId, formData).then(function () {
-                                    var option = _.find(_this.field.options, ['value', _this.value]);
+                                    var label = _.find(_this.field.options, function (option) {
+                                        return option.value == _this.field.value;
+                                    }).label;
 
-                                    _this.$toasted.show('Status updated to "' + option.label + '"', { type: 'success' });
+                                    _this.$toasted.show('Status updated to "' + label + '"', { type: 'success' });
                                 }, function (response) {
                                     _this.$toasted.show(response, { type: 'error' });
                                 }).finally(function () {

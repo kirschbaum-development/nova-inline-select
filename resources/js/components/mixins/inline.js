@@ -22,8 +22,8 @@ export default {
 
             return Nova.request().post(`/nova-api/${this.resourceName}/${this.resourceId}`, formData)
                 .then(() => {
-                    let label = _.find(this.field.options, { value: this.field.value }).label
-                    
+                    let label = _.find(this.field.options, option => option.value == this.field.value).label;
+
                     this.$toasted.show(`Status updated to "${label}"`, { type: 'success' });
                 }, (response) => {
                     this.$toasted.show(response, { type: 'error' });
