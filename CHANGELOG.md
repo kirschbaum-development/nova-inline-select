@@ -20,3 +20,7 @@ All notable changes to `nova-inline-select` will be documented in this file
 
 - Security patches
 - Updated readme
+
+## 1.0.5 - 2019-09-04
+
+- Toaster displaying properly when field is updated. Thanks to [@noahlocke](https://github.com/noahlocke).
