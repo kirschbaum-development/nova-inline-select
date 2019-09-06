@@ -2,32 +2,35 @@ dist: xenial
 language: php
 
 env:
-    global:
-        - SETUP=stable
+  global:
+    - SETUP=stable
+    - secure: cSwVIrDWQVQDuxYL/K7LyTrobiaBEU3Q/PIBq6cdKktUnqOcg4qGZw7gOAqnG/TSxOwHggEqSFoibQrJyP39feqTamRgTUSl8KFSyyynF9dIpf3fvXF8vdn2N2m/UpOoRwV4CtSrbo5fd+Ol/vurUFiiKM5ydGab98oVZrkmrsbLhjE8TIhI/WBnsfyfHgeWm0jGNaSvqitjshNA/8PlLBdQ+7K5quMXpCtAJreshLtAvwBvyYaEvVRcJ/xfBeXu204ZgnBf0CWrhgF0lRoqFbqjImzGDh5GhUZ4gL1kSHrlfULPfqeprtUO4i3DRU14fSG5MUba4VNGOJxJaTuOJsgdrbuOwSFyKRTqNYz3ZUb9BRqEZklSd89n1vh0YJItNRnd2TGu6B+fvW7mevVCFvHVDWR6+rxkIlFa4/K8QDpZrjopgEvgZ2YwmX7YfpGnrJw3oEyuEx9sHFbk6FEoQKzQ/cqlFPbrauW4m00qfFNQ4BciWUb9NDwSF8Bjv0aJWSFKQaoRjNkSUP3LjpuLyhlh7jkyfIMM/uSMqBA9aQtMMZ3DhbMYrFZBY6EKKhOsz0nJh1AatBRlPIDrIT2VnlLJqRHgiDEajSfQVM1RH1xOo5xq05LzLWIS72A4NxPPMeyL+2f/ycPSmMw/TC+5BwTRGFhTy4RkI6SeZL7iVwE=
+    - secure: XhHcMUdQOLnVaydZrYKVSZ59jH2fpiTuMDHZ73yzKKDrDDHg8vbnffgoFxcdCBjdf5CRvTUZZ6xskN2rj3a6LWRUfDP++tBRoIZ3RYcqzk/No/OGhHX1/RmzHlj1c7e6iLX0FeGxqnCtlwjPGqs9LwICQWvvFXtt3UXuWCeHpAukfuBRrOxAVUqSetFRrpul5+yNcjw6O8td6Bp/mRlpWBOc117fHgCvTUxHVYhr+iXyDYQn0sKUL6M2T6bsCxpyaU5WetMBEgheq/YQOn9ZUtBe0X+LX6S9sBbTHU8hHlsTn6b3gLZL11zE9lNnl1Ve5yuI/CIchrQiIOcvgCldFaE+2vJcd30/hTTf3VFTq5huSmJ0cUi6qiq0NpVDzOUJ3CRMco3pcYFTqL6YkEqZf2qvo9lOt924HhlfVHcr3IXU3AlHK4uy+o30ad6INthFwKRLJQ2UHuetfLSDi+GeqgCjWq+G9LJGx9fYs9l3F+eu2w8l5SG6r36Gw3PkkhBrMFZHYhAvMZwWbl3QlvQ1Wp7f/kF0ImLfY9ASskLVBCkp+6wCq6NiwqSCVkxi4s5JL7gXr2sgsjdwu+PoQHM9+Lc9Zklwvt9uPMcPG2mrKyaspJ8hzGKFtjUckeN9s+EVm+owCd/QBP2KRvzRuiYECbYGikeQNCEzbkRpDcyOooA=
 
 matrix:
-    fast_finish: true
-    include:
-        - php: 7.2
-        - php: 7.2
-          env: SETUP=lowest
-        - php: 7.3
-        - php: 7.3
-          env: SETUP=lowest
-        - php: 7.4snapshot
-        - php: 7.4snapshot
-          env: SETUP=lowest
+  fast_finish: true
+  include:
+    - php: 7.2
+    - php: 7.2
+      env: SETUP=lowest
+    - php: 7.3
+    - php: 7.3
+      env: SETUP=lowest
+    - php: 7.4snapshot
+    - php: 7.4snapshot
+      env: SETUP=lowest
 
 cache:
-    directories:
-        - $HOME/.composer/cache
+  directories:
+    - "$HOME/.composer/cache"
 
 before_install:
-    - phpenv config-rm xdebug.ini || true
-    - travis_retry composer self-update
+  - phpenv config-rm xdebug.ini || true
+  - travis_retry composer self-update
+  - echo "{\"http-basic\":{\"nova.laravel.com\":{\"username\":\"${NOVA_USERNAME}\",\"password\":\"${NOVA_PASSWORD}\"}}}" > auth.json
 
 install:
-    - if [[ $SETUP = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest; fi
-    - if [[ $SETUP = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
+  - if [[ $SETUP = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest; fi
+  - if [[ $SETUP = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
 
 script: vendor/bin/phpunit
