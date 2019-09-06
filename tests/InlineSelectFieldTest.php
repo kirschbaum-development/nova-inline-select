@@ -49,6 +49,13 @@ class InlineSelectFieldTest extends TestCase
         $this->assertTrue($this->inlineSelect->meta['indexTwoStepDisabled']);
     }
 
+    public function testThatItDisablesTwoStepOnLens()
+    {
+        $this->inlineSelect->disableTwoStepOnLens();
+
+        $this->assertTrue($this->inlineSelect->meta['indexTwoStepDisabled']);
+    }
+
     public function testThatItDisplaysUsingLabels()
     {
         $this->inlineSelect->displayUsingLabels();
