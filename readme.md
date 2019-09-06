@@ -80,6 +80,21 @@ InlineSelect::make('Status')->options($options)
     ->displayUsingLabels(),
 ```
 
+### Using closures as  `options()` argument
+
+You may pass a closure to the options method. It must return a key value pair array.
+
+```php
+InlineSelect::make('Status')
+    ->options(function () {
+        return [
+            'one' => 'foo',
+            'two' => 'bar',
+        ];
+    }),
+```
+
+
 ### Validation caveats
 
 In the case where fields on a model are `required`, which is likely, an extra step needs to be taken to ensure the inline select update persists and doesn't throw an error. The validation rule `sometimes` needs to be added to the `updateRules()` method on any field that is `required`.
