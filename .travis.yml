@@ -3,6 +3,8 @@ language: php
 env:
   global:
     - SETUP=stable
+    - hdGqbtOtIT/KXZs07lWoFod/Ed3I5rPvYKqi/uoI0zIVlomjdOeGoWJQmPHR7G1EAxGSZ8bj2+rOizuh5A45uze7qUCFVuG/CaOM8Kfb8k5xnHBRJbI2fJgBrlMdZ4TflppnxzSvoLphdZAf+PRDQ9mhOBMjRSXxiDiZWLBN8+2sm3p4pvwZWnsNPla9Ls8Ia5jlfy3gMry6o0Mz36JIyJzu2eZS+j6el7T07LJss8RhgrrVV1+va98FYtAXAThdP4MXeOFcpa/iCuTwfHbhtkwP7HzsrWKr+xU8/RcjzLcloWcDenhjhc81PJN0T6Rekp5ZZEEjTQCK1mjw8i0QjtmbaRFdCOcUAlt28nIGERpU1NAR9UtVpRODgtEQw5SeGYiIdYkfeiSifZeomC6CKI+/lVLL6gW1FkdD/hM1AE9vy3Je7MKs8gsgyLAMwNy3Uy/xfsRfBXR2CGuI3X4l79z61xgFHgxWH1OXsCx2q+gABMyBMeW8EV56UXUdiKTM4/M6TrPF4Y6LpJCXacN36QiY67do001jhblb5Vu4M+UDZku2ie6rjZKxZ9K2cMsElqs7jUZqVj1wgHc6wkR2dHL4ffmxn4Bn2E98tpzUO6Y7Op8Hy6PhdM1MGf5dKmGELPPgeK37VEI12Ovx0mPbd/0YPP3TshBHVD8gGJbH90Y=
+    - l6q9E0JpapzNsIaGI20/EqewS/NsAD09yO6StZZxkfjMw7mWOdo6CstZqSKNtIGGD8ygl2L7MWuy4aBSSxz4zrSqFwFaSzSzQ2BE9BJMXNtdSKPv1Zpd9E4FakiiY3Dbu6+6HZ3AOAs4G/VlHqb3AA5tkn1GJGHNSEYzg/CzG8A0VDr/Whn/a0ABUNNa+YCFpr2sWWBgmVx0umsEl8+OE7uC14prv1G2ageo9xq5in4lRbhppAg793DVRsxrj63qz6tYTQywDqCmvi/LZw39iJdQ8//YMsbcWGA0Hww88+5ZobhrP32UJ6+iWVyf98fK8JXpMEVmu++02gFbrTFosondPS6ChbowVyYRX3XtgD8F+dJMpTcVgYTBJ7t9vP4w/wyJvrhsgyQ+UP+XkEm3aJVlU5UnnNj8oSO0PNCN7552CW1+1pNxz7OMNcNDdjsCCYVOS42TenlKJosoDFC/cD8+C8Ji8/Oj2I+fZ8JLMzu7X2VE0qimDlaUKyGibCPmKePphXZqaYXn+tr2K2zmHk0lW5bQrMhT9AmGIwIYrI/uwNNI0oL1CysoLb+kaucREKwDrdV0UlxWJnsTFoGPRyLrQJ5H5x27bcM58W6RS7MfvgCdDvlFA/RbjCKqXtilsB+EcxDixgy8FAO3ydC3GWhunf9GWA1uIHgAg9Gnark=
 
 matrix:
   fast_finish: true
@@ -30,4 +32,4 @@ install:
   - if [[ $SETUP = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest; fi
   - if [[ $SETUP = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
 
-script: vendor/bin/phpunit
+script: ./vendor/bin/phpunit tests
