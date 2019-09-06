@@ -5,6 +5,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kirschbaum-development/nova-inline-select.svg)](https://packagist.org/packages/kirschbaum-development/nova-inline-select)
 [![Total Downloads](https://img.shields.io/packagist/dt/kirschbaum-development/nova-inline-select.svg)](https://packagist.org/packages/kirschbaum-development/nova-inline-select)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/024838dcc31d4b3889d1d885fa0cc20d)](https://app.codacy.com/app/Kirschbaum/nova-inline-select?utm_source=github.com&utm_medium=referral&utm_content=kirschbaum-development/nova-inline-select&utm_campaign=Badge_Grade_Dashboard)
+[![Build Status](https://travis-ci.com/kirschbaum-development/nova-inline-select.svg?branch=master)](https://travis-ci.com/kirschbaum-development/nova-inline-select)
 
 This package contains a Nova select field that can update field values inline from the index and detail views.
 
@@ -70,6 +71,14 @@ InlineSelect::make('Status')->options($options)
 ```
 
 Now changing the select field on the index view will auto-submit the changed value.
+
+You can also add the inline select to Lenses. Use the `inlineOnLens()` method. Auto-submitting works the same as well with `disableTwoStepOnLens()`.
+
+```php
+InlineSelect::make('Status')->options($options)
+    ->inlineOnLens()
+    ->disableTwoStepOnLens(),
+```
 
 ### Display using labels
 
