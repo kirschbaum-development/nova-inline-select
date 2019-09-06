@@ -16,12 +16,16 @@ class InlineSelect extends Field
     /**
      * Set the options for the select menu.
      *
-     * @param  array  $options
+     * @param  array|\Closure  $options
      *
      * @return $this
      */
     public function options($options)
     {
+        if (is_callable($options)) {
+            $options = call_user_func($options);
+        }
+
         return $this->withMeta([
             'options' => collect($options ?? [])->map(function ($label, $value) {
                 return is_array($label) ? $label + ['value' => $value] : ['label' => $label, 'value' => $value];
