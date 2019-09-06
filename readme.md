@@ -82,7 +82,7 @@ InlineSelect::make('Status')->options($options)
 
 ### Using closures as  `options()` argument
 
-Passing a closure to this method allows data to be formatting based on some specific logic.
+You may pass a closure to the options method. It must return a key value pair array.
 
 ```php
 InlineSelect::make('Status')
