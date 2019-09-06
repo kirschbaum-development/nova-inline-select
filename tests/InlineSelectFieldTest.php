@@ -63,6 +63,13 @@ class InlineSelectFieldTest extends TestCase
         $this->assertTrue($this->inlineSelect->meta['inlineIndex']);
     }
 
+    public function testThatItInlinesOnLens()
+    {
+        $this->inlineSelect->inlineOnIndex();
+
+        $this->assertTrue($this->inlineSelect->meta['inlineIndex']);
+    }
+
     public function testThatItInlinesOnDetail()
     {
         $this->inlineSelect->inlineOnDetail();

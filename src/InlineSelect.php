@@ -74,6 +74,16 @@ class InlineSelect extends Field
     }
 
     /**
+     * Enable inline editing on index view.
+     *
+     * @return $this
+     */
+    public function inlineOnLens()
+    {
+        return $this->inlineOnIndex();
+    }
+
+    /**
      * Enable inline editing on detail view.
      *
      * @return $this
