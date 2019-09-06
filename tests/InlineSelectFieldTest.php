@@ -69,4 +69,17 @@ class InlineSelectFieldTest extends TestCase
 
         $this->assertTrue($this->inlineSelect->meta['inlineDetail']);
     }
+
+    public function testCallbackCanBeUsedAsOptionsArgument()
+    {
+        $value = $this->faker->word;
+        $label = $this->faker->word;
+
+        $this->inlineSelect->options(static function () use ($value, $label) {
+            return [$value => $label];
+        });
+
+        $this->assertEquals($label, $this->inlineSelect->meta['options'][0]['label']);
+        $this->assertEquals($value, $this->inlineSelect->meta['options'][0]['value']);
+    }
 }
