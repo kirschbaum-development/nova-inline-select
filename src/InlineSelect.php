@@ -54,6 +54,16 @@ class InlineSelect extends Field
     }
 
     /**
+     * Allow inline select to auto-update field value on change on index view.
+     *
+     * @return $this
+     */
+    public function disableTwoStepOnLens()
+    {
+        return $this->disableTwoStepOnIndex();
+    }
+
+    /**
      * Display values using their corresponding specified labels.
      *
      * @return $this
@@ -61,6 +71,16 @@ class InlineSelect extends Field
     public function displayUsingLabels()
     {
         return $this->withMeta(['displayUsingLabels' => true]);
+    }
+
+    /**
+     * Enable inline editing on detail view.
+     *
+     * @return $this
+     */
+    public function inlineOnDetail()
+    {
+        return $this->withMeta(['inlineDetail' => true]);
     }
 
     /**
@@ -74,12 +94,12 @@ class InlineSelect extends Field
     }
 
     /**
-     * Enable inline editing on detail view.
+     * Enable inline editing on index view.
      *
      * @return $this
      */
-    public function inlineOnDetail()
+    public function inlineOnLens()
     {
-        return $this->withMeta(['inlineDetail' => true]);
+        return $this->inlineOnIndex();
     }
 }
