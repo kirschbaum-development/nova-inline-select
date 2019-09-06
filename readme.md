@@ -72,6 +72,14 @@ InlineSelect::make('Status')->options($options)
 
 Now changing the select field on the index view will auto-submit the changed value.
 
+You can also add the inline select to Lenses. Use the `inlineOnLens()` method. Auto-submitting works the same as well with `disableTwoStepOnLens()`.
+
+```php
+InlineSelect::make('Status')->options($options)
+    ->inlineOnLens()
+    ->disableTwoStepOnLens(),
+```
+
 ### Display using labels
 
 This method works just like Nova's select field. It will display the option value rather than the option key.

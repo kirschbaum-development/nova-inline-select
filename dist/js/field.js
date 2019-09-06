@@ -10436,7 +10436,7 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 
 
@@ -10477,7 +10477,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                         return option.value == _this.field.value;
                                     }).label;
 
-                                    _this.$toasted.show('Status updated to "' + label + '"', { type: 'success' });
+                                    _this.$toasted.show(_this.field.name + ' updated to "' + label + '"', { type: 'success' });
                                 }, function (response) {
                                     _this.$toasted.show(response, { type: 'error' });
                                 }).finally(function () {
@@ -10506,7 +10506,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
-module.exports = __webpack_require__(18);
+module.exports = __webpack_require__(15);
 
 
 /***/ }),
@@ -10515,8 +10515,8 @@ module.exports = __webpack_require__(18);
 
 Nova.booting(function (Vue) {
     Vue.component('index-inline-select', __webpack_require__(6));
-    Vue.component('detail-inline-select', __webpack_require__(12));
-    Vue.component('form-inline-select', __webpack_require__(15));
+    Vue.component('detail-inline-select', __webpack_require__(9));
+    Vue.component('form-inline-select', __webpack_require__(12));
 });
 
 /***/ }),
@@ -10528,7 +10528,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(7)
 /* template */
-var __vue_template__ = __webpack_require__(11)
+var __vue_template__ = __webpack_require__(8)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -10641,11 +10641,452 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(9);
-
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "flex" },
+    [
+      _vm.field.inlineIndex
+        ? [
+            _c(
+              "select-control",
+              {
+                staticClass: "flex-1 form-control form-select",
+                class: _vm.errorClasses,
+                attrs: {
+                  id: _vm.field.attribute,
+                  options: _vm.field.options,
+                  selected: _vm.value,
+                  disabled: _vm.isReadonly
+                },
+                on: { change: _vm.attemptUpdate },
+                model: {
+                  value: _vm.value,
+                  callback: function($$v) {
+                    _vm.value = $$v
+                  },
+                  expression: "value"
+                }
+              },
+              [
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.__("Choose an option")) +
+                      "\n            "
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm.showUpdateButton
+              ? _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-default btn-primary flex items-center justify-center px-3 ml-2",
+                    attrs: { title: _vm.__("Update") },
+                    on: { click: _vm.submit }
+                  },
+                  [
+                    _c("icon", {
+                      staticClass: "text-white",
+                      staticStyle: { "margin-left": "7px" },
+                      attrs: { type: "play" }
+                    })
+                  ],
+                  1
+                )
+              : _vm._e()
+          ]
+        : [_vm._v("\n        " + _vm._s(_vm.displayValue) + "\n    ")]
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-9e63f81a", module.exports)
+  }
+}
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(10)
+/* template */
+var __vue_template__ = __webpack_require__(11)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/DetailField.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0224618e", Component.options)
+  } else {
+    hotAPI.reload("data-v-0224618e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_nova__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_init__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_inline__ = __webpack_require__(3);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mixins: [__WEBPACK_IMPORTED_MODULE_0_laravel_nova__["FormField"], __WEBPACK_IMPORTED_MODULE_0_laravel_nova__["HandlesValidationErrors"], __WEBPACK_IMPORTED_MODULE_1__mixins_init__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__mixins_inline__["a" /* default */]],
+
+    props: ['resource', 'resourceName', 'resourceId', 'field'],
+
+    methods: {
+        attemptUpdate: function attemptUpdate() {
+            if (this.field.detailTwoStepDisabled) {
+                return this.submit();
+            }
+
+            this.showUpdateButton = true;
+        }
+    }
+});
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "panel-item",
+    { attrs: { field: _vm.field } },
+    [
+      _vm.field.inlineDetail
+        ? _c("template", { slot: "value" }, [
+            _c(
+              "div",
+              { staticClass: "flex w-full" },
+              [
+                _c(
+                  "select-control",
+                  {
+                    staticClass: "flex-1 form-control form-select",
+                    class: _vm.errorClasses,
+                    attrs: {
+                      id: _vm.field.attribute,
+                      options: _vm.field.options,
+                      selected: _vm.value,
+                      disabled: _vm.isReadonly
+                    },
+                    on: { change: _vm.attemptUpdate },
+                    model: {
+                      value: _vm.value,
+                      callback: function($$v) {
+                        _vm.value = $$v
+                      },
+                      expression: "value"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "", disabled: "" } }, [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.__("Choose an option")) +
+                          "\n                "
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.showUpdateButton
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn btn-default btn-primary flex items-center justify-center px-3 ml-2",
+                        attrs: { title: _vm.__("Update") },
+                        on: { click: _vm.submit }
+                      },
+                      [
+                        _c("icon", {
+                          staticClass: "text-white",
+                          staticStyle: { "margin-left": "7px" },
+                          attrs: { type: "play" }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ],
+              1
+            )
+          ])
+        : _c("template", { slot: "value" }, [
+            _vm._v("\n        " + _vm._s(_vm.displayValue) + "\n    ")
+          ])
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0224618e", module.exports)
+  }
+}
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(13)
+/* template */
+var __vue_template__ = __webpack_require__(14)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/FormField.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c023248a", Component.options)
+  } else {
+    hotAPI.reload("data-v-c023248a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_nova__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_init__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mixins: [__WEBPACK_IMPORTED_MODULE_0_laravel_nova__["FormField"], __WEBPACK_IMPORTED_MODULE_0_laravel_nova__["HandlesValidationErrors"], __WEBPACK_IMPORTED_MODULE_1__mixins_init__["a" /* default */]],
+
+    props: ['resourceName', 'resourceId', 'field']
+});
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "default-field",
+    { attrs: { field: _vm.field, errors: _vm.errors } },
+    [
+      _c(
+        "template",
+        { slot: "field" },
+        [
+          _c(
+            "select-control",
+            {
+              staticClass: "w-full form-control form-select",
+              class: _vm.errorClasses,
+              attrs: {
+                id: _vm.field.attribute,
+                options: _vm.field.options,
+                selected: _vm.value,
+                disabled: _vm.isReadonly
+              },
+              model: {
+                value: _vm.value,
+                callback: function($$v) {
+                  _vm.value = $$v
+                },
+                expression: "value"
+              }
+            },
+            [
+              _c("option", { attrs: { value: "", disabled: "" } }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.__("Choose an option")) +
+                    "\n            "
+                )
+              ])
+            ]
+          )
+        ],
+        1
+      )
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c023248a", module.exports)
+  }
+}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(21);
+
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10670,7 +11111,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(22);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -10686,7 +11127,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 10 */
+/* 22 */
 /***/ (function(module, exports) {
 
 /**
@@ -11417,443 +11858,6 @@ if (hadRuntime) {
   (function() { return this })() || Function("return this")()
 );
 
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "flex" },
-    [
-      _vm.field.inlineIndex
-        ? [
-            _c(
-              "select-control",
-              {
-                staticClass: "flex-1 form-control form-select",
-                class: _vm.errorClasses,
-                attrs: {
-                  id: _vm.field.attribute,
-                  options: _vm.field.options,
-                  selected: _vm.value,
-                  disabled: _vm.isReadonly
-                },
-                on: { change: _vm.attemptUpdate },
-                model: {
-                  value: _vm.value,
-                  callback: function($$v) {
-                    _vm.value = $$v
-                  },
-                  expression: "value"
-                }
-              },
-              [
-                _c("option", { attrs: { value: "", disabled: "" } }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.__("Choose an option")) +
-                      "\n            "
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _vm.showUpdateButton
-              ? _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-default btn-primary flex items-center justify-center px-3 ml-2",
-                    attrs: { title: _vm.__("Update") },
-                    on: { click: _vm.submit }
-                  },
-                  [
-                    _c("icon", {
-                      staticClass: "text-white",
-                      staticStyle: { "margin-left": "7px" },
-                      attrs: { type: "play" }
-                    })
-                  ],
-                  1
-                )
-              : _vm._e()
-          ]
-        : [_vm._v("\n        " + _vm._s(_vm.displayValue) + "\n    ")]
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-9e63f81a", module.exports)
-  }
-}
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(13)
-/* template */
-var __vue_template__ = __webpack_require__(14)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/DetailField.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0224618e", Component.options)
-  } else {
-    hotAPI.reload("data-v-0224618e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_nova__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_init__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_inline__ = __webpack_require__(3);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mixins: [__WEBPACK_IMPORTED_MODULE_0_laravel_nova__["FormField"], __WEBPACK_IMPORTED_MODULE_0_laravel_nova__["HandlesValidationErrors"], __WEBPACK_IMPORTED_MODULE_1__mixins_init__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__mixins_inline__["a" /* default */]],
-
-    props: ['resource', 'resourceName', 'resourceId', 'field'],
-
-    methods: {
-        attemptUpdate: function attemptUpdate() {
-            if (this.field.detailTwoStepDisabled) {
-                return this.submit();
-            }
-
-            this.showUpdateButton = true;
-        }
-    }
-});
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "panel-item",
-    { attrs: { field: _vm.field } },
-    [
-      _vm.field.inlineDetail
-        ? _c("template", { slot: "value" }, [
-            _c(
-              "div",
-              { staticClass: "flex w-full" },
-              [
-                _c(
-                  "select-control",
-                  {
-                    staticClass: "flex-1 form-control form-select",
-                    class: _vm.errorClasses,
-                    attrs: {
-                      id: _vm.field.attribute,
-                      options: _vm.field.options,
-                      selected: _vm.value,
-                      disabled: _vm.isReadonly
-                    },
-                    on: { change: _vm.attemptUpdate },
-                    model: {
-                      value: _vm.value,
-                      callback: function($$v) {
-                        _vm.value = $$v
-                      },
-                      expression: "value"
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "", disabled: "" } }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.__("Choose an option")) +
-                          "\n                "
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _vm.showUpdateButton
-                  ? _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn btn-default btn-primary flex items-center justify-center px-3 ml-2",
-                        attrs: { title: _vm.__("Update") },
-                        on: { click: _vm.submit }
-                      },
-                      [
-                        _c("icon", {
-                          staticClass: "text-white",
-                          staticStyle: { "margin-left": "7px" },
-                          attrs: { type: "play" }
-                        })
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ],
-              1
-            )
-          ])
-        : _c("template", { slot: "value" }, [
-            _vm._v("\n        " + _vm._s(_vm.displayValue) + "\n    ")
-          ])
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0224618e", module.exports)
-  }
-}
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(16)
-/* template */
-var __vue_template__ = __webpack_require__(17)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/FormField.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c023248a", Component.options)
-  } else {
-    hotAPI.reload("data-v-c023248a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_nova__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_init__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mixins: [__WEBPACK_IMPORTED_MODULE_0_laravel_nova__["FormField"], __WEBPACK_IMPORTED_MODULE_0_laravel_nova__["HandlesValidationErrors"], __WEBPACK_IMPORTED_MODULE_1__mixins_init__["a" /* default */]],
-
-    props: ['resourceName', 'resourceId', 'field']
-});
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "default-field",
-    { attrs: { field: _vm.field, errors: _vm.errors } },
-    [
-      _c(
-        "template",
-        { slot: "field" },
-        [
-          _c(
-            "select-control",
-            {
-              staticClass: "w-full form-control form-select",
-              class: _vm.errorClasses,
-              attrs: {
-                id: _vm.field.attribute,
-                options: _vm.field.options,
-                selected: _vm.value,
-                disabled: _vm.isReadonly
-              },
-              model: {
-                value: _vm.value,
-                callback: function($$v) {
-                  _vm.value = $$v
-                },
-                expression: "value"
-              }
-            },
-            [
-              _c("option", { attrs: { value: "", disabled: "" } }, [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(_vm.__("Choose an option")) +
-                    "\n            "
-                )
-              ])
-            ]
-          )
-        ],
-        1
-      )
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-c023248a", module.exports)
-  }
-}
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
