@@ -1,21 +1,12 @@
 dist: xenial
 language: php
-env:
-  global:
-    - SETUP=stable
 
 matrix:
   fast_finish: true
   include:
     - php: 7.2
-    - php: 7.2
-      env: SETUP=lowest
     - php: 7.3
-    - php: 7.3
-      env: SETUP=lowest
     - php: 7.4snapshot
-    - php: 7.4snapshot
-      env: SETUP=lowest
 
 cache:
   directories:
@@ -27,7 +18,6 @@ before_install:
 
 install:
   - composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_PASSWORD}
-  - if [[ $SETUP = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest; fi
-  - if [[ $SETUP = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
+  - travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest
 
 script: ./vendor/bin/phpunit tests
