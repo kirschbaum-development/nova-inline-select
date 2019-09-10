@@ -54,7 +54,7 @@ Now you can use the `InlineSelect` field just like Nova's `Select` field. Now fo
 
 ### Inline editing
 
-By default, the inline select field works just like a normal select field. To enable the inline editting capabilities we can use the `inlineOnIndex()` and `inlineOnDetail()` methods.
+By default, the inline select field works just like a normal select field. To enable the inline editing capabilities we can use the `inlineOnIndex()` and `inlineOnDetail()` methods.
 
 ```php
 InlineSelect::make('Status')->options($options)
