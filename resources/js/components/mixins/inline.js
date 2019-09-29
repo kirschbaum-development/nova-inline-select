@@ -22,7 +22,7 @@ export default {
 
             return Nova.request().post(`/nova-api/${this.resourceName}/${this.resourceId}`, formData)
                 .then(() => {
-                    let label = _.find(this.field.options, option => option.value == this.field.value).label;
+                    let label = _.find(this.field.options, option => option.value == this.value).label;
 
                     this.$toasted.show(`${this.field.name} updated to "${label}"`, { type: 'success' });
                 }, (response) => {
@@ -30,7 +30,6 @@ export default {
                 })
                 .finally(() => {
                     this.showUpdateButton = false;
-
                 });
         }
     }
