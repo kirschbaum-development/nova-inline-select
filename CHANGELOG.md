@@ -32,3 +32,11 @@ All notable changes to `nova-inline-select` will be documented in this file
 - Inline Select can now be placed on lenses. Thanks to [@skoyah](https://github.com/skoyah) for the suggestion [#14](https://github.com/kirschbaum-development/nova-inline-select/issues/14).
 - Travis CI strapped on for the wild ride
 - Updated readme
+
+## 1.0.7 - 2019-11-15
+
+- Another toaster field name fix. Thanks to [@skoyah](https://github.com/skoyah) [#19](https://github.com/kirschbaum-development/nova-inline-select/pull/19).
+- Typo fix. Thanks to [@benabbottnz](https://github.com/benabbottnz) [#18](https://github.com/kirschbaum-development/nova-inline-select/issues/18).
+- Travis CI killed somewhere in the wild
+- Github Actions now doing the heavy lifting for tests. Thanks [@luisdalmolin](https://github.com/luisdalmolin) [#19](https://github.com/kirschbaum-development/nova-inline-select/issues/19).
+- Added pretty printing results for PHPUnit tests
