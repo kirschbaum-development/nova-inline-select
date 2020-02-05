@@ -59,7 +59,7 @@ By default, the inline select field works just like a normal select field. To en
 ```php
 InlineSelect::make('Status')->options($options)
     ->inlineOnIndex()
-    ->inlineOnDetails(),
+    ->inlineOnDetail(),
 ```
 
 Now the above inline select field will show up on both the index and detail views. When making a change to the select field, a button will display next to the field allowing you to commit the change. If you would prefer the field to auto-submit the change, just add `disableTwoStepOnIndex()` or `disableTwoStepOnDetail()`.
