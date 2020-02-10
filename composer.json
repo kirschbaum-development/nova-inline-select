@@ -25,7 +25,7 @@
     },
     "require-dev": {
         "codedungeon/phpunit-result-printer": "^0.26.2",
-        "orchestra/testing": "^4.0",
+        "orchestra/testbench": "^4.0",
         "phpunit/phpunit": "^8.3",
         "laravel/nova": "*"
     },
