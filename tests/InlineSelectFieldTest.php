@@ -12,7 +12,7 @@ class InlineSelectFieldTest extends TestCase
     /**
      * @var InlineSelect
      */
-    protected $inlineSelect;
+    protected InlineSelect $inlineSelect;
 
     /**
      * @before
@@ -22,17 +22,6 @@ class InlineSelectFieldTest extends TestCase
         parent::setUp();
 
         $this->inlineSelect = new InlineSelect('inline-select');
-    }
-
-    public function testThatItHandlesOptionsProperly()
-    {
-        $value = $this->faker->word;
-        $label = $this->faker->word;
-
-        $this->inlineSelect->options([$value => $label]);
-
-        $this->assertEquals($label, $this->inlineSelect->meta['options'][0]['label']);
-        $this->assertEquals($value, $this->inlineSelect->meta['options'][0]['value']);
     }
 
     public function testThatItDisablesTwoStepOnDetail()
@@ -56,13 +45,6 @@ class InlineSelectFieldTest extends TestCase
         $this->assertTrue($this->inlineSelect->meta['indexTwoStepDisabled']);
     }
 
-    public function testThatItDisplaysUsingLabels()
-    {
-        $this->inlineSelect->displayUsingLabels();
-
-        $this->assertTrue($this->inlineSelect->meta['displayUsingLabels']);
-    }
-
     public function testThatItInlinesOnIndex()
     {
         $this->inlineSelect->inlineOnIndex();
@@ -82,18 +64,5 @@ class InlineSelectFieldTest extends TestCase
         $this->inlineSelect->inlineOnDetail();
 
         $this->assertTrue($this->inlineSelect->meta['inlineDetail']);
-    }
-
-    public function testCallbackCanBeUsedAsOptionsArgument()
-    {
-        $this->inlineSelect->options(function () {
-            $value = 'foo';
-            $label = 'bar';
-
-            return [$value => $label];
-        });
-
-        $this->assertSame('bar', $this->inlineSelect->meta['options'][0]['label']);
-        $this->assertSame('foo', $this->inlineSelect->meta['options'][0]['value']);
     }
 }

@@ -1,11 +1,10 @@
 preset: laravel
 
 enabled:
-    - array_indentation
     - combine_consecutive_unsets
-    - compact_nullable_typehint
     - concat_with_spaces
     - explicit_string_variable
+    - length_ordered_imports
     - method_chaining_indentation
     - no_empty_comment
     - ordered_class_elements
@@ -17,4 +16,7 @@ enabled:
     - ternary_to_null_coalescing
 
 disabled:
+    - alpha_ordered_imports
     - concat_without_spaces
+    - laravel_phpdoc_order
+    - laravel_phpdoc_separation

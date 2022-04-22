@@ -1,15 +1,25 @@
+import find from 'lodash/find';
+
 export default {
-    data() {
-        return {
-            showUpdateButton: false
-        }
-    },
+    data: () => ({
+        isInline: false,
+        showUpdateButton: false,
+        twoStepDisabled: false
+    }),
 
     computed: {
-        displayValue() {
-            return this.field.displayUsingLabels
-                ? _.find(this.field.options, { value: this.field.value }).label
-                : this.field.value;
+        /**
+         * Determine if the field has a value other than null.
+         */
+        hasValue() {
+            return this.field.value !== null
+        },
+
+        /**
+         * Return the placeholder text for the field.
+         */
+        placeholder() {
+            return this.field.placeholder || this.__('Choose an option')
         }
     },
 
@@ -22,15 +32,25 @@ export default {
 
             return Nova.request().post(`/nova-api/${this.resourceName}/${this.resourceId}`, formData)
                 .then(() => {
-                    let label = _.find(this.field.options, option => option.value == this.value).label;
+                    let label = find(this.field.options, option => option.value === this.value).label;
 
-                    this.$toasted.show(`${this.field.name} updated to "${label}"`, { type: 'success' });
+                    Nova.success(`${this.field.name} updated to "${label}"`);
                 }, (response) => {
-                    this.$toasted.show(response, { type: 'error' });
+                    Nova.error(response);
                 })
                 .finally(() => {
                     this.showUpdateButton = false;
                 });
+        },
+
+        attemptUpdate(value) {
+            this.value = value;
+
+            if (this.field.indexTwoStepDisabled ?? false) {
+                return this.submit();
+            }
+
+            this.showUpdateButton = true;
         }
     }
 }

@@ -40,3 +40,7 @@ All notable changes to `nova-inline-select` will be documented in this file
 - Travis CI killed somewhere in the wild
 - Github Actions now doing the heavy lifting for tests. Thanks [@luisdalmolin](https://github.com/luisdalmolin) [#19](https://github.com/kirschbaum-development/nova-inline-select/issues/19).
 - Added pretty printing results for PHPUnit tests
+
+## 2.0.0 - 2022-5-22
+
+- Upgraded and ready for Nova 4!

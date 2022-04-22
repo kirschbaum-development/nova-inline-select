@@ -2,9 +2,9 @@
 
 namespace KirschbaumDevelopment\Nova;
 
-use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Fields\Select;
 
-class InlineSelect extends Field
+class InlineSelect extends Select
 {
     /**
      * The field's component.
@@ -12,26 +12,6 @@ class InlineSelect extends Field
      * @var string
      */
     public $component = 'inline-select';
-
-    /**
-     * Set the options for the select menu.
-     *
-     * @param  array|\Closure  $options
-     *
-     * @return $this
-     */
-    public function options($options)
-    {
-        if (is_callable($options)) {
-            $options = call_user_func($options);
-        }
-
-        return $this->withMeta([
-            'options' => collect($options ?? [])->map(function ($label, $value) {
-                return is_array($label) ? $label + ['value' => $value] : ['label' => $label, 'value' => $value];
-            })->values()->all(),
-        ]);
-    }
 
     /**
      * Allow inline select to auto-update field value on change on detail view.
@@ -61,16 +41,6 @@ class InlineSelect extends Field
     public function disableTwoStepOnLens()
     {
         return $this->disableTwoStepOnIndex();
-    }
-
-    /**
-     * Display values using their corresponding specified labels.
-     *
-     * @return $this
-     */
-    public function displayUsingLabels()
-    {
-        return $this->withMeta(['displayUsingLabels' => true]);
     }
 
     /**
