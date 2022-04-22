@@ -4,13 +4,12 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kirschbaum-development/nova-inline-select.svg)](https://packagist.org/packages/kirschbaum-development/nova-inline-select)
 [![Total Downloads](https://img.shields.io/packagist/dt/kirschbaum-development/nova-inline-select.svg)](https://packagist.org/packages/kirschbaum-development/nova-inline-select)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/024838dcc31d4b3889d1d885fa0cc20d)](https://app.codacy.com/app/Kirschbaum/nova-inline-select?utm_source=github.com&utm_medium=referral&utm_content=kirschbaum-development/nova-inline-select&utm_campaign=Badge_Grade_Dashboard)
 [![Actions Status](https://github.com/kirschbaum-development/nova-inline-select/workflows/CI/badge.svg)](https://github.com/kirschbaum-development/nova-inline-select/actions)
 
 This package contains a Nova select field that can update field values inline from the index and detail views.
 
-![screenshot of the inline select field](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/pending.png)
-![screenshot of the inline select field ready for submitting](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/approved.png)
+![screenshot of the inline select field](screenshots/pending.png)
+![screenshot of the inline select field ready for submitting](screenshots/approved.png)
 
 ## Requirements
 
