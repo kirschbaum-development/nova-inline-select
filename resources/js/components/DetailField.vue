@@ -1,57 +1,67 @@
 <template>
-    <panel-item :field="field">
-        <template slot="value" v-if="field.inlineDetail">
-            <div class="flex w-full">
-                <select-control
-                    :id="field.attribute"
-                    v-model="value"
-                    class="flex-1 form-control form-select"
-                    :class="errorClasses"
-                    :options="field.options"
-                    :selected="value"
-                    :disabled="isReadonly"
-                    @change="attemptUpdate">
+    <PanelItem :index="index" :field="field">
+        <template #value>
+            <div class="flex">
+                <template v-if="isInline">
+                    <SelectControl
+                        :id="field.uniqueKey"
+                        :dusk="field.attribute"
+                        v-model:selected="value"
+                        @change="attemptUpdate"
+                        @click.stop
+                        class="w-full md:w-3/5"
+                        :select-classes="{ 'form-input-border-error': hasError }"
+                        :options="field.options"
+                        :disabled="isReadonly"
+                    >
+                        <option value="" selected :disabled="! field.nullable">
+                            {{ placeholder }}
+                        </option>
+                    </SelectControl>
 
-                    <option value="" disabled>
-                        {{ __('Choose an option') }}
-                    </option>
-                </select-control>
+                    <BasicButton
+                        class="shadow relative ml-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900"
+                        v-if="showUpdateButton"
+                        :title="__('Update')"
+                        @click.stop="submit"
+                    >
+                        <Icon type="play" solid />
+                    </BasicButton>
+                </template>
 
-                <button
-                    class="btn btn-default btn-primary flex items-center justify-center px-3 ml-2"
-                    :title="__('Update')"
-                    v-if="showUpdateButton"
-                    @click="submit">
+                <template v-else>
+                    <template v-if="hasValue">
+                        <div v-if="field.asHtml" @click.stop v-html="field.value"></div>
 
-                    <icon type="play" class="text-white" style="margin-left: 7px"/>
-                </button>
+                        <span v-else class="whitespace-nowrap" v-text="field.value"></span>
+                    </template>
+
+                    <p v-else>&mdash;</p>
+                </template>
             </div>
         </template>
-
-        <template slot="value" v-else>
-            {{ displayValue }}
-        </template>
-    </panel-item>
+    </PanelItem>
 </template>
 
 <script>
-    import { FormField, HandlesValidationErrors } from 'laravel-nova';
-    import InlineInit from './mixins/init';
-    import InlineMixin from './mixins/inline';
+import { FormField, HandlesValidationErrors } from 'laravel-nova';
+import InlineMixin from './mixins/inline';
 
-    export default {
-        mixins: [FormField, HandlesValidationErrors, InlineInit, InlineMixin],
+export default {
+    mixins: [
+        FormField,
+        HandlesValidationErrors,
+        InlineMixin
+    ],
 
-        props: ['resource', 'resourceName', 'resourceId', 'field'],
+    props: [
+        'index',
+        'resourceId'
+    ],
 
-        methods: {
-            attemptUpdate() {
-                if (this.field.detailTwoStepDisabled) {
-                    return this.submit();
-                }
-
-                this.showUpdateButton = true;
-            }
-        }
-    }
+    mounted() {
+        this.isInline = this.field.inlineDetail ?? false;
+        this.twoStepDisabled = this.field.detailTwoStepDisabled ?? false;
+    },
+}
 </script>

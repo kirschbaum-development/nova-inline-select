@@ -1,61 +1,63 @@
 <template>
     <div class="flex">
-        <template v-if="field.inlineIndex">
-            <select-control
-                :id="field.attribute"
-                v-model="value"
-                class="flex-1 form-control form-select"
-                :class="errorClasses"
+        <template v-if="isInline">
+            <SelectControl
+                :id="field.uniqueKey"
+                :dusk="field.attribute"
+                v-model:selected="value"
+                @change="attemptUpdate"
+                @click.stop
+                class="w-full"
+                :select-classes="{ 'form-input-border-error': hasError }"
                 :options="field.options"
-                :selected="value"
                 :disabled="isReadonly"
-                @change="attemptUpdate">
-
-                <option value="" disabled>
-                    {{ __('Choose an option') }}
+            >
+                <option value="" selected :disabled="! field.nullable">
+                    {{ placeholder }}
                 </option>
-            </select-control>
+            </SelectControl>
 
-            <button
-                class="btn btn-default btn-primary flex items-center justify-center px-3 ml-2"
-                :title="__('Update')"
+            <BasicButton
+                class="shadow relative ml-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900"
                 v-if="showUpdateButton"
-                @click="submit">
-
-                <icon type="play" class="text-white" style="margin-left: 7px"/>
-            </button>
+                :title="__('Update')"
+                @click.stop="submit"
+            >
+                <Icon type="play" solid />
+            </BasicButton>
         </template>
 
         <template v-else>
-            {{ displayValue }}
+            <template v-if="hasValue">
+                <div v-if="field.asHtml" @click.stop v-html="field.value"></div>
+
+                <span v-else class="whitespace-nowrap" v-text="field.value"></span>
+            </template>
+
+            <p v-else>&mdash;</p>
         </template>
     </div>
 </template>
 
 <script>
-    import { FormField, HandlesValidationErrors } from 'laravel-nova';
-    import InlineInit from './mixins/init';
-    import InlineMixin from './mixins/inline';
+import { FormField, HandlesValidationErrors } from 'laravel-nova';
+import InlineMixin from './mixins/inline';
 
-    export default {
-        mixins: [FormField, HandlesValidationErrors, InlineInit, InlineMixin],
+export default {
+    mixins: [
+        FormField,
+        HandlesValidationErrors,
+        InlineMixin
+    ],
 
-        props: ['resourceName', 'field'],
+    data: () => ({
+        resourceId: null,
+    }),
 
-        computed: {
-            resourceId() {
-                return this.$parent.resource.id.value;
-            }
-        },
-
-        methods: {
-            attemptUpdate() {
-                if (this.field.indexTwoStepDisabled) {
-                    return this.submit();
-                }
-
-                this.showUpdateButton = true;
-            }
-        }
-    }
+    mounted() {
+        this.isInline = this.field.inlineIndex ?? false;
+        this.resourceId = this.$attrs.resource.id.value;
+        this.twoStepDisabled = this.field.indexTwoStepDisabled ?? false;
+    },
+}
 </script>
