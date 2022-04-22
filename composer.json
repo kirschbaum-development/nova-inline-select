@@ -21,13 +21,12 @@
         }
     ],
     "require": {
-        "php": ">=7.1.0"
+        "php": "^8.0"
     },
     "require-dev": {
-        "codedungeon/phpunit-result-printer": "^0.26.2",
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.3",
-        "laravel/nova": "*"
+        "laravel/nova": "^4.2",
+        "orchestra/testbench": "^7.4",
+        "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
         "psr-4": {
