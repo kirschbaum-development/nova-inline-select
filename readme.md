@@ -54,7 +54,7 @@ class User extends Resource
 }
 ```
 
-Now you can use the `InlineSelect` field just like Nova's `Select` field. Now for the magic...
+Use the `InlineSelect` field just like Nova's `Select` field. But now for the magic...
 
 ### Inline editing
 
@@ -66,22 +66,22 @@ InlineSelect::make('Status')->options($options)
     ->inlineOnDetail(),
 ```
 
-Now the above inline select field will show up on both the index and detail views. When making a change to the select field, a button will display next to the field allowing you to commit the change. If you would prefer the field to auto-submit the change, just add `disableTwoStepOnIndex()` or `disableTwoStepOnDetail()`.
+The above inline select field will show up on both the index and detail views. When making a change to the select field, a button will display next to the field allowing you to commit the change. If you would rather the field auto-submits the change, simply add `enableOneStepOnIndex()` or `enableOneStepOnDetail()`.
 
 ```php
 InlineSelect::make('Status')->options($options)
     ->inlineOnIndex()
-    ->disableTwoStepOnIndex(),
+    ->enableOneStepOnIndex(),
 ```
 
-Now changing the select field on the index view will auto-submit the changed value.
+The inline select field on the index view now will auto-submit the changed value. You can also continue to use the old `disableTwoStepOnIndex()` method if you choose, which just calls `enableOneStepOnIndex()` under the hood.
 
-You can also add the inline select to Lenses. Use the `inlineOnLens()` method. Auto-submitting works the same as well with `disableTwoStepOnLens()`.
+You can also add the inline select to Lenses. Use the `inlineOnLens()` method. Auto-submitting works the same as well with `enableOneStepOnLens()`.
 
 ```php
 InlineSelect::make('Status')->options($options)
     ->inlineOnLens()
-    ->disableTwoStepOnLens(),
+    ->enableOneStepOnLens(),
 ```
 
 ### Display using labels

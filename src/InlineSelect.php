@@ -15,60 +15,72 @@ class InlineSelect extends Select
 
     /**
      * Allow inline select to auto-update field value on change on detail view.
-     *
-     * @return $this
      */
-    public function disableTwoStepOnDetail()
+    public function enableOneStepOnDetail(): InlineSelect
     {
         return $this->withMeta(['detailTwoStepDisabled' => true]);
     }
 
     /**
-     * Allow inline select to auto-update field value on change on index view.
-     *
-     * @return $this
+     * Allow inline select to auto-update field value on change on detail view.
      */
-    public function disableTwoStepOnIndex()
+    public function disableTwoStepOnDetail(): InlineSelect
+    {
+        return $this->enableOneStepOnDetail();
+    }
+
+    /**
+     * Allow inline select to auto-update field value on change on index view.
+     */
+    public function enableOneStepOnIndex(): InlineSelect
     {
         return $this->withMeta(['indexTwoStepDisabled' => true]);
     }
 
     /**
      * Allow inline select to auto-update field value on change on index view.
-     *
-     * @return $this
      */
-    public function disableTwoStepOnLens()
+    public function disableTwoStepOnIndex(): InlineSelect
     {
-        return $this->disableTwoStepOnIndex();
+        return $this->enableOneStepOnIndex();
+    }
+
+    /**
+     * Allow inline select to auto-update field value on change on index view.
+     */
+    public function enableOneStepOnLens(): InlineSelect
+    {
+        return $this->enableOneStepOnIndex();
+    }
+
+    /**
+     * Allow inline select to auto-update field value on change on index view.
+     */
+    public function disableTwoStepOnLens(): InlineSelect
+    {
+        return $this->enableOneStepOnIndex();
     }
 
     /**
      * Enable inline editing on detail view.
-     *
-     * @return $this
      */
-    public function inlineOnDetail()
+    public function inlineOnDetail(): InlineSelect
     {
         return $this->withMeta(['inlineDetail' => true]);
     }
 
     /**
      * Enable inline editing on index view.
-     *
-     * @return $this
      */
-    public function inlineOnIndex()
+    public function inlineOnIndex(): InlineSelect
     {
         return $this->withMeta(['inlineIndex' => true]);
     }
 
     /**
      * Enable inline editing on index view.
-     *
-     * @return $this
      */
-    public function inlineOnLens()
+    public function inlineOnLens(): InlineSelect
     {
         return $this->inlineOnIndex();
     }
