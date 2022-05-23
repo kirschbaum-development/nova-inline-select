@@ -41,6 +41,10 @@ All notable changes to `nova-inline-select` will be documented in this file
 - Github Actions now doing the heavy lifting for tests. Thanks [@luisdalmolin](https://github.com/luisdalmolin) [#19](https://github.com/kirschbaum-development/nova-inline-select/issues/19).
 - Added pretty printing results for PHPUnit tests
 
-## 2.0.0 - 2022-5-22
+## 2.0.0 - 2022-4-22
 
 - Upgraded and ready for Nova 4!
+
+## 2.0.1 - 2022-5-23
+
+- Added `enableOneStepOn...()` methods to eventually replace `disableTwoStepOn...()` methods.
