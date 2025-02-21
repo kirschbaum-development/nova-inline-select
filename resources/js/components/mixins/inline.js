@@ -32,7 +32,7 @@ export default {
 
             return Nova.request().post(`/nova-api/${this.resourceName}/${this.resourceId}`, formData)
                 .then(() => {
-                    let label = find(this.field.options, option => option.value === this.value).label;
+                    let label = find(this.field.options, option => String(option.value) === String(this.value)).label;
 
                     Nova.success(`${this.field.name} updated to "${label}"`);
                 }, (response) => {
