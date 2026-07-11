@@ -4,11 +4,11 @@
             <SelectControl
                 :id="field.uniqueKey"
                 :dusk="field.attribute"
-                v-model:selected="value"
-                @change="attemptUpdate"
+                v-model="value"
+                @selected="attemptUpdate"
                 @click.stop
                 class="w-full"
-                :select-classes="{ 'form-input-border-error': hasError }"
+                :has-error="hasError"
                 :options="field.options"
                 :disabled="isReadonly"
             >
@@ -17,14 +17,17 @@
                 </option>
             </SelectControl>
 
-            <BasicButton
-                class="shadow relative ml-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900"
+            <button
+                type="button"
                 v-if="showUpdateButton"
                 :title="__('Update')"
                 @click.stop="submit"
+                class="shadow relative ml-2 flex h-9 items-center justify-center rounded-lg px-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900"
             >
-                <Icon type="play" solid />
-            </BasicButton>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+                    <path d="M6.3 2.84A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.27l9.34-5.89a1.5 1.5 0 0 0 0-2.54L6.3 2.84Z" />
+                </svg>
+            </button>
         </template>
 
         <template v-else>

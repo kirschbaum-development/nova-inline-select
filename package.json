@@ -13,13 +13,14 @@
         "@inertiajs/inertia": "^0.11.0",
         "@vue/babel-plugin-jsx": "^1.1.0",
         "@vue/compiler-sfc": "^3.2.22",
-        "form-backend-validation": "^2.3.3",
         "inflector-js": "^1.0.1",
         "laravel-mix": "^6.0.41",
         "lodash": "^4.17.21",
         "postcss": "^8.3.11",
+        "tailwindcss": "^3.4.19",
+        "uid": "^2.0.2",
         "vue-loader": "^16.8.3",
-        "vuex": "^4.0.2"
-    },
-    "dependencies": {}
+        "vuex": "^4.0.2",
+        "webpack": "5.89.0"
+    }
 }

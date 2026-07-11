@@ -1,3 +1,6 @@
+# Laravel Nova v5
+This package has been forked from kirschbaum-development/nova-inline-select and updated to support Laravel Nova v5.
+
 ![Nova Inline Select banner](https://raw.githubusercontent.com/kirschbaum-development/nova-inline-select/master/screenshots/banner.jpg)
 
 # An inline select field for Nova apps
@@ -23,6 +26,19 @@ This Nova field requires Nova 1.0 or higher.
 ## Installation
 
 You can install this package in a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
+
+First, add this to the repositories section of your composer.json file:
+
+```text
+"repositories": [
+    {
+        "type": "git",
+        "url": "https://github.com/MaidenVoyageSoftware/nova-inline-select.git"
+    },
+]
+```
+
+Then, install the package as usual
 
 ```bash
 composer require kirschbaum-development/nova-inline-select

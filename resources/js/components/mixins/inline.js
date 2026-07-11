@@ -27,12 +27,13 @@ export default {
         async submit() {
             let formData = new FormData();
 
-            formData.append(this.field.attribute, this.value);
+            formData.append(this.field.attribute, this.value ?? '');
             formData.append('_method', 'PUT');
 
             return Nova.request().post(`/nova-api/${this.resourceName}/${this.resourceId}`, formData)
                 .then(() => {
-                    let label = find(this.field.options, option => option.value === this.value).label;
+                    let option = find(this.field.options, option => option.value == this.value);
+                    let label = option ? option.label : this.value;
 
                     Nova.success(`${this.field.name} updated to "${label}"`);
                 }, (response) => {
@@ -43,10 +44,18 @@ export default {
                 });
         },
 
-        attemptUpdate(value) {
-            this.value = value;
+        attemptUpdate(optionOrEvent) {
+            /*
+             * Nova v5's SelectControl emits `@selected` with the selected option object.
+             * Fall back to reading a native event target (older behaviour) just in case.
+             */
+            if (optionOrEvent?.target) {
+                this.value = optionOrEvent.target.value;
+            } else if (optionOrEvent != null && optionOrEvent.value !== undefined) {
+                this.value = optionOrEvent.value;
+            }
 
-            if (this.field.indexTwoStepDisabled ?? false) {
+            if (this.twoStepDisabled) {
                 return this.submit();
             }
 
